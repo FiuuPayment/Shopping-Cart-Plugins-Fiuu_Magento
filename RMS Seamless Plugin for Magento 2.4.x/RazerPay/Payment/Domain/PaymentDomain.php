@@ -40,7 +40,7 @@ class PaymentDomain
         $this->magentoSalesInvoiceSender = $magentoSalesInvoiceSender;
         $this->magentoSalesInvoiceService = $magentoSalesInvoiceService;
         $this->paymentReturnIpnRequestFactory = $paymentReturnIpnRequestFactory;
-        $this->paymentCaputreRequestFactory = $paymentCaptureRequestFactory;
+        $this->paymentCaptureRequestFactory = $paymentCaptureRequestFactory;
         $this->paymentDataDomain = $paymentDataDomain;
         $this->paymentGatewayConfig = $paymentGatewayConfig;
     }
@@ -211,7 +211,7 @@ class PaymentDomain
         /**
          * @var \RazerPay\Payment\Domain\Api\CaptureRequest $request
          */
-        $request = $this->paymentCaputreRequestFactory->create([
+        $request = $this->paymentCaptureRequestFactory->create([
             'bodyParams' => [
                 'tran_id' => $salesOrderPaymentAuthorizationTransaction->getTxnId(),
                 'ref_id' => $salesOrderPayment->getOrder()->getIncrementId(),
