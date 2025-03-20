@@ -1,3 +1,4 @@
+[IMPORTANT - THIS PLUGIN IS CURRENTLY UNDER MAINTENENCE, PLEASE DO NOT USE UNTIL FURTHER NOTICE]  
 [Shopping Cart Plugins] – RazerMS Magento
 =====================
 
