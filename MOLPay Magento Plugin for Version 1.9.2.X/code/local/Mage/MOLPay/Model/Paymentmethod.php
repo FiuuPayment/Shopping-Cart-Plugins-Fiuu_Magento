@@ -2,13 +2,13 @@
 /**
  * MOLPay Sdn. Bhd.
  *
- * @package     MOLPay Magento Plugin
+ * @package     Fiuu Magento Plugin
  * @author      netbuilder <code@netbuilder.com.my>
  * @copyright   Copyright (c) 2012 - 2016, MOLPay
  * @link        http://molpay.com
  * @since       Version 1.9.x.x
  * @update      MOLPay <technical@molpay.com>
- * @filesource  https://github.com/MOLPay/Magento_Plugin
+ * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
  */
 
 class Mage_MOLPay_Model_PaymentMethod extends Mage_Payment_Model_Method_Abstract {
@@ -81,11 +81,12 @@ class Mage_MOLPay_Model_PaymentMethod extends Mage_Payment_Model_Method_Abstract
             $email = $order->getCustomerEmail();
         }
 
+        $currency_code_MYR = "MYR";
         $sArr = array(
             'returnurl' => Mage::getUrl( 'molpay/paymentmethod/success', array('_secure' => true)),
             'orderid' => $orderid,  
             'amount' => $amount ,
-            'currency_code' => "MYR",
+            'currency_code' => $currency_code_MYR,
             'bill_name' => $address->getFirstname() . ' ' . $address->getLastname(),
             'bill_email' => $email,
             'bill_mobile' => $address->getTelephone(),
@@ -95,6 +96,9 @@ class Mage_MOLPay_Model_PaymentMethod extends Mage_Payment_Model_Method_Abstract
 
         $ven = $this->getConfigData('encrytype');
         $vk = $sArr['amount'] . $this->getConfigData('login') . $sArr['orderid'] . $this->getConfigData('transkey'); 
+        if ($this->getConfigData('extended_vcode')) {
+            $vk = $sArr['amount'] . $this->getConfigData('login') . $sArr['orderid'] . $this->getConfigData('transkey') . $currency_code_MYR; 
+        }
 
         //print_r("<li>".$vk);exit();
         $sArr['vcode'] = ( $ven =="sha1" )? sha1( $vk ) : md5( $vk );
@@ -138,7 +142,7 @@ class Mage_MOLPay_Model_PaymentMethod extends Mage_Payment_Model_Method_Abstract
     }
 
     public function getMOLPayUrl() {
-        return 'https://www.onlinepayment.com.my/MOLPay/pay/'.$this->getConfigData('login')."/";
+        return 'https://pay.fiuu.com/MOLPay/pay/'.$this->getConfigData('login')."/";
     }
 
     /**

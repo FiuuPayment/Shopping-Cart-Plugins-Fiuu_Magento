@@ -1,14 +1,14 @@
 <?php
 /**
- * MOLPay Sdn. Bhd.
+ * Razer Merchant Services Sdn. Bhd.
  *
- * @package     MOLPay Magento Plugin
+ * @package     Fiuu Magento Plugin
  * @author      netbuilder <code@netbuilder.com.my>
  * @copyright   Copyright (c) 2012 - 2016, MOLPay
- * @link        http://molpay.com
+ * @link        http://fiuu.com
  * @since       Version 1.9.x.x
- * @update      MOLPay <technical@molpay.com>
- * @filesource  https://github.com/MOLPay/Magento_Plugin
+ * @update      MOLPay <technical@fiuu.com>
+ * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
  */
 
 class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Action {
@@ -347,7 +347,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
           $postData[]= $k."=".$v;
         }
         $postdata   = implode("&",$postData);
-        $url        = "https://www.onlinepayment.com.my/MOLPay/API/chkstat/returnipn.php";
+        $url        = "https://pay.fiuu.com/MOLPay/API/chkstat/returnipn.php";
         $ch         = curl_init();
         curl_setopt($ch, CURLOPT_POST           , 1     );
         curl_setopt($ch, CURLOPT_POSTFIELDS     , $postdata );

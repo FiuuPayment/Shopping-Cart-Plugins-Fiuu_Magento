@@ -6,7 +6,7 @@
             <groups>
               <!-- newmodule fieldset -->
               <molpay translate="label" module="molpay">
-                    <label>MOLPay</label>
+                    <label>Fiuu</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>10</sort_order>
                     <show_in_default>1</show_in_default>
@@ -31,7 +31,7 @@
                             <show_in_store>0</show_in_store>
                         </title>
                         <login translate="label">
-                            <label>MOLPay Merchant ID</label>
+                            <label>Fiuu Merchant ID</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>3</sort_order>
                             <show_in_default>1</show_in_default>
@@ -39,7 +39,7 @@
                             <show_in_store>1</show_in_store>
                         </login>
                         <transkey translate="label">
-                            <label>MOLPay Verify Key</label>
+                            <label>Fiuu Verify Key</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>5</sort_order>
                             <show_in_default>1</show_in_default>
@@ -47,7 +47,7 @@
                             <show_in_store>0</show_in_store>
                         </transkey>
                         <encrytype translate="label">
-                            <label>MOLPay Encryption Method</label>
+                            <label>Fiuu Encryption Method</label>
                             <frontend_type>select</frontend_type>
                             <source_model>molpay/paymentmethod_source_encrytype</source_model>
                             <sort_order>5</sort_order>
@@ -55,6 +55,14 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
                         </encrytype>
+                        <extended_vcode translate="label">
+                            <label>Fiuu Enable Extended Vcode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </extended_vcode>
                         <paymentdescription translate="label">
                             <label>Payment Description</label>
                             <frontend_type>textarea</frontend_type>
