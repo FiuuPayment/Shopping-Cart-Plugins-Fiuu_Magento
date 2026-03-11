@@ -1,14 +1,14 @@
 <?php
 /**
- * MOLPay Sdn. Bhd.
+ * Razer Merchant Services Sdn. Bhd.
  *
- * @package     MOLPay Magento Plugin
+ * @package     Fiuu Magento Plugin
  * @author      netbuilder <code@netbuilder.com.my>
- * @copyright   Copyright (c) 2012 - 2016, MOLPay
- * @link        http://molpay.com
+ * @copyright   Copyright (c) 2012 - 2016, Fiuu
+ * @link        http://fiuu.com
  * @since       Version 1.9.x.x
- * @update      MOLPay <technical@molpay.com>
- * @filesource  https://github.com/MOLPay/Magento_Plugin
+ * @update      Fiuu <technical@fiuu.com>
+ * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
  */
 
 class Mage_MOLPay_Block_PaymentMethod_Form extends Mage_Payment_Block_Form {
@@ -21,11 +21,7 @@ class Mage_MOLPay_Block_PaymentMethod_Form extends Mage_Payment_Block_Form {
 
     $skeleton = Mage::getSingleton("molpay/paymentmethod")->getConfigData('paymentdescription');
     if( $skeleton == "" ) {
-        $skeleton = "You will be redirected to MOLPay website when you place an order.<br>
-                    Supported Secured Online Payment: <br>
-                    <img src='http://molpay.com/home/pic/molpay/molpayhor01.gif' ><br>
-                    Supported Banks: <br>
-                    <img src='http://molpay.com/home/pic/molpay/molpayhor02.gif' >";
+        $skeleton = "You will be redirected to Fiuu website when you place an order.<br>";
     }
     return "<fieldset class=\"form-list\">
               <ul id=\"payment_form_molpay\" style=\"display: none;\">

@@ -1,14 +1,14 @@
 <?php
 /**
- * MOLPay Sdn. Bhd.
+ * Razer Merchant Services Sdn. Bhd.
  *
- * @package     MOLPay Magento Plugin
+ * @package     Fiuu Magento Plugin
  * @author      netbuilder <code@netbuilder.com.my>
  * @copyright   Copyright (c) 2012 - 2016, MOLPay
- * @link        http://molpay.com
+ * @link        http://fiuu.com
  * @since       Version 1.9.x.x
- * @update      MOLPay <technical@molpay.com>
- * @filesource  https://github.com/MOLPay/Magento_Plugin
+ * @update      MOLPay <technical@fiuu.com>
+ * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
  */
 
 class Mage_MOLPay_Block_PaymentMethod_Redirect extends Mage_Core_Block_Abstract {
@@ -31,7 +31,7 @@ class Mage_MOLPay_Block_PaymentMethod_Redirect extends Mage_Core_Block_Abstract 
         }
 
         $html = '<html><body>'."\n";
-        $html .= $this->__('You will be redirected to MOLPay in a few seconds.')."\n";
+        $html .= $this->__('You will be redirected to Fiuu in a few seconds.')."\n";
         $html .= $form->toHtml();
         $html .= '<script type="text/javascript">document.getElementById("molpay_paymentmethod_checkout").submit();</script>';
         $html .= '</body></html>';

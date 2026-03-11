@@ -1,14 +1,14 @@
 <?php
 /**
- * MOLPay Sdn. Bhd.
+ * Razer Merchant Services Sdn. Bhd.
  *
- * @package     MOLPay Magento Plugin
+ * @package     Fiuu Magento Plugin
  * @author      netbuilder <code@netbuilder.com.my>
  * @copyright   Copyright (c) 2012 - 2016, MOLPay
- * @link        http://molpay.com
+ * @link        http://fiuu.com
  * @since       Version 1.9.x.x
- * @update      MOLPay <technical@molpay.com>
- * @filesource  https://github.com/MOLPay/Magento_Plugin
+ * @update      MOLPay <technical@fiuu.com>
+ * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
  */
 
 class Mage_MOLPay_Helper_Data extends Mage_Core_Helper_Abstract {

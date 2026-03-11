@@ -2,13 +2,13 @@
 /**
  * MOLPay Sdn. Bhd.
  *
- * @package     MOLPay Magento Plugin
+ * @package     Fiuu Magento Plugin
  * @author      netbuilder <code@netbuilder.com.my>
  * @copyright   Copyright (c) 2012 - 2016, MOLPay
  * @link        http://molpay.com
  * @since       Version 1.9.x.x
  * @update      MOLPay <technical@molpay.com>
- * @filesource  https://github.com/MOLPay/Magento_Plugin
+ * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
  */
 
 class Mage_MOLPay_Model_PaymentMethod extends Mage_Payment_Model_Method_Abstract {
