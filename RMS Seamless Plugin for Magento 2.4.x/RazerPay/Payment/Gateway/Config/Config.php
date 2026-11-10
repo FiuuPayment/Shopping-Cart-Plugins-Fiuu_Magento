@@ -10,6 +10,7 @@ class Config extends \Magento\Payment\Gateway\Config\Config
     public const KEY_ACCOUNT_TYPE = 'account_type';
     public const KEY_CHANNELS = 'channels';
     public const KEY_CREDIT_CHANNEL_TRANSACTION_TYPE = 'credit_channel_transaction_type';
+    public const KEY_EXTENDED_VCODE = 'extended_vcode';
 
     public const ACCOUNT_TYPE_PRODUCTION = 'production';
     public const ACCOUNT_TYPE_SANDBOX = 'sandbox';
@@ -76,6 +77,11 @@ class Config extends \Magento\Payment\Gateway\Config\Config
     public function getCreditChannelTransactionType(): ?string
     {
         return $this->getValue(self::KEY_CREDIT_CHANNEL_TRANSACTION_TYPE);
+    }
+
+    public function isExtendedVcodeEnabled(): bool
+    {
+        return (bool) $this->getValue(self::KEY_EXTENDED_VCODE);
     }
 
     public function isProduction(): bool
