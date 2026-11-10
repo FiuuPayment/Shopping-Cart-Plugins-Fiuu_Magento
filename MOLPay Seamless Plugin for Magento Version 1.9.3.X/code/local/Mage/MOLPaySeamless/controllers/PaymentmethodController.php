@@ -92,6 +92,9 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
 
             $ven = $pm->getConfigData('encrytype');
             $vk = $sArr['mpsamount'] . $pm->getConfigData('login') . $quote->getReservedOrderId() . $pm->getConfigData('transkey');
+            if ($pm->getConfigData('extended_vcode')) {
+                $vk = $sArr['mpsamount'] . $pm->getConfigData('login') . $quote->getReservedOrderId() . $pm->getConfigData('transkey') . $sArr['mpscurrency'];
+            }
 
             $sArr['mpsvcode'] = ( $ven =="sha1" )? sha1( $vk ) : md5( $vk );
 
