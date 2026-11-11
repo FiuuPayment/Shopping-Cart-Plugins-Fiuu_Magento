@@ -98,7 +98,7 @@
                 <login></login>
                 <!--<merchant_email></merchant_email>-->
                 <paymentdescription>
-                  <![CDATA[You will be redirected to Fiuu website when you place an order.<br>Supported Secured Online Payment: <br><img src='http://www.molpay.com/home/pic/molpay/molpayhor01.gif' ><br>Supported Banks: <br><img src='http://www.molpay.com/home/pic/molpay/molpayhor02.gif' >]]>
+                  <![CDATA[You will be redirected to Fiuu website when you place an order.<br>]]>
                 </paymentdescription> 
                 <encrytype>md5</encrytype>
                 <extended_vcode>0</extended_vcode>
