@@ -3,8 +3,8 @@
     <policies>
         <policy id="form-action">
             <values>
-                <value id="razerpay-payment-base" type="host">https://pay.merchant.razer.com</value>
-                <value id="razerpay-payment-sandbox-base" type="host">https://sandbox.merchant.razer.com</value>
+                <value id="razerpay-payment-base" type="host">https://pay.fiuu.com</value>
+                <value id="razerpay-payment-sandbox-base" type="host">https://sandbox-payment.fiuu.com</value>
             </values>
         </policy>
     </policies>

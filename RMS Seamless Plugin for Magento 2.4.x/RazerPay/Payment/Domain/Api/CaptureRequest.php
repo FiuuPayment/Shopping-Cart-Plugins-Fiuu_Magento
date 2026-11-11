@@ -6,9 +6,9 @@ class CaptureRequest extends Request
 {
     protected string $method = \Magento\Framework\App\Request\Http::METHOD_POST;
 
-    protected string $productionEndpoint = 'https://api.merchant.razer.com/RMS/API/capstxn/index.php';
+    protected string $productionEndpoint = 'https://api.fiuu.com/RMS/API/capstxn/index.php';
 
-    protected string $sandboxEndpoint = 'https://sandbox.merchant.razer.com/RMS/API/capstxn/index.php';
+    protected string $sandboxEndpoint = 'https://sandbox-api.fiuu.com/RMS/API/capstxn/index.php';
 
     public const ERRORS = [
         '11' => 'Failure',

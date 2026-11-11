@@ -12,7 +12,7 @@ The Fiuu Magento Plugin makes it easy to add Fiuu payment gateway to your Magent
 Important Notice 
 ----------------
 
-* As 2nd July 2020, for those who are already used this plugin, kindly change https://sandbox.molpay.com/ to https://sandbox.fiuu.com/ to avoid any unnecessary error during your testing payment in Fiuu Sandbox Environment.
+* As 2nd July 2020, for those who are already used this plugin, kindly change https://sandbox.molpay.com/ to https://sandbox-payment.fiuu.com/ to avoid any unnecessary error during your testing payment in Fiuu Sandbox Environment.
 * Latest plugin has published with respective changes as in this link 
 https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento/tree/master/RMS%20Seamless%20Plugin%20for%20Magento%202.4.x
 

@@ -19,14 +19,14 @@ class Config extends \Magento\Payment\Gateway\Config\Config
     public const CREDIT_CHANNEL_TRANSACTION_TYPE_SALS = 'SALS';
     public const CREDIT_CHANNEL_TRANSACTION_TYPE_AUTH = 'AUTH';
 
-    public const PRODUCTION_PAYMENT_BASE_URL = 'https://pay.merchant.razer.com/RMS/pay/';
-    public const SANDBOX_PAYMENT_BASE_URL = 'https://sandbox.merchant.razer.com/RMS/pay/';
+    public const PRODUCTION_PAYMENT_BASE_URL = 'https://pay.fiuu.com/RMS/pay/';
+    public const SANDBOX_PAYMENT_BASE_URL = 'https://sandbox-payment.fiuu.com/RMS/pay/';
 
-    public const PRODUCTION_INQUIRY_URL = 'https://api.merchant.razer.com/';
-    public const SANDBOX_INQUIRY_URL = 'https://sandbox.merchant.razer.com/';
+    public const PRODUCTION_INQUIRY_URL = 'https://api.fiuu.com/';
+    public const SANDBOX_INQUIRY_URL = 'https://sandbox-api.fiuu.com/';
 
-    public const PRODUCTION_SEAMLESS_JS_URL = 'https://pay.merchant.razer.com/RMS/API/seamless/3.28/js/MOLPay_seamless.deco.js';
-    public const SANDBOX_SEAMLESS_JS_URL = 'https://sandbox.merchant.razer.com/RMS/API/seamless/3.28/js/MOLPay_seamless.deco.js';
+    public const PRODUCTION_SEAMLESS_JS_URL = 'https://pay.fiuu.com/RMS/API/seamless/3.28/js/MOLPay_seamless.deco.js';
+    public const SANDBOX_SEAMLESS_JS_URL = 'https://sandbox-payment.fiuu.com/RMS/API/seamless/3.28/js/MOLPay_seamless.deco.js';
 
     public const PAYMENT_STATUS_SUCCESS = '00';
     public const PAYMENT_STATUS_FAIL = '11';

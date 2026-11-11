@@ -42,28 +42,28 @@
                 <field id="return_endpoint" translate="label" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Return Endpoint</label>
                     <comment>
-                        <![CDATA[To enable return webhook feature, you must copy the above url to setup at <a href="https://portal.merchant.razer.com"><strong>Razer Merchant Portal</strong></a>.]]>
+                        <![CDATA[To enable return webhook feature, you must copy the above url to setup at <a href="https://portal.fiuu.com"><strong>Razer Merchant Portal</strong></a>.]]>
                     </comment>
                     <frontend_model>RazerPay\Payment\Block\Adminhtml\System\Config\ReturnEndpoint</frontend_model>
                 </field>
                 <field id="callback_endpoint" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Callback Endpoint</label>
                     <comment>
-                        <![CDATA[To enable callback webhook feature, you must copy the above url to setup at <a href="https://portal.merchant.razer.com"><strong>Razer Merchant Portal</strong></a>.]]>
+                        <![CDATA[To enable callback webhook feature, you must copy the above url to setup at <a href="https://portal.fiuu.com"><strong>Razer Merchant Portal</strong></a>.]]>
                     </comment>
                     <frontend_model>RazerPay\Payment\Block\Adminhtml\System\Config\CallbackEndpoint</frontend_model>
                 </field>
                 <field id="notify_endpoint" translate="label" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Notify Endpoint</label>
                     <comment>
-                        <![CDATA[To enable notify webhook feature, you must copy the above url to setup at <a href="https://portal.merchant.razer.com"><strong>Razer Merchant Portal</strong></a>.]]>
+                        <![CDATA[To enable notify webhook feature, you must copy the above url to setup at <a href="https://portal.fiuu.com"><strong>Razer Merchant Portal</strong></a>.]]>
                     </comment>
                     <frontend_model>RazerPay\Payment\Block\Adminhtml\System\Config\NotifyEndpoint</frontend_model>
                 </field>
                 <field id="cancel_endpoint" translate="label" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Cancel Endpoint</label>
                     <comment>
-                        <![CDATA[To enable cancel webhook feature, you must copy the above url to setup at <a href="https://portal.merchant.razer.com"><strong>Razer Merchant Portal</strong></a>.]]>
+                        <![CDATA[To enable cancel webhook feature, you must copy the above url to setup at <a href="https://portal.fiuu.com"><strong>Razer Merchant Portal</strong></a>.]]>
                     </comment>
                     <frontend_model>RazerPay\Payment\Block\Adminhtml\System\Config\CancelEndpoint</frontend_model>
                 </field>
