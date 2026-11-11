@@ -1,13 +1,13 @@
 <?php
 /**
- * MOLPay Sdn. Bhd.
+ * Fiuu
  *
  * @package     Fiuu Magento Plugin
  * @author      netbuilder <code@netbuilder.com.my>
- * @copyright   Copyright (c) 2012 - 2016, MOLPay
+ * @copyright   Copyright (c) 2012 - 2016, Fiuu
  * @link        https://fiuu.com
  * @since       Version 1.9.x.x
- * @update      MOLPay <technical@molpay.com>
+ * @update      Fiuu <technical@fiuu.com>
  * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
  */
 
