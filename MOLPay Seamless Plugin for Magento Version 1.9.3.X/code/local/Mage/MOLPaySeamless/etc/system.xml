@@ -6,7 +6,7 @@
             <groups>
               <!-- newmodule fieldset -->
               <molpayseamless translate="label">
-                    <label>MOLPay Seamless Integration </label>
+                    <label>Fiuu Seamless Integration </label>
                     <frontend_type>text</frontend_type>
                     <sort_order>11</sort_order>
                     <show_in_default>1</show_in_default>
@@ -31,7 +31,7 @@
                             <show_in_store>0</show_in_store>
                         </title>
                         <login translate="label">
-                            <label>MOLPay Merchant ID</label>
+                            <label>Fiuu Merchant ID</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>3</sort_order>
                             <show_in_default>1</show_in_default>
@@ -39,7 +39,7 @@
                             <show_in_store>1</show_in_store>
                         </login>
                         <transkey translate="label">
-                            <label>MOLPay Verify Key</label>
+                            <label>Fiuu Verify Key</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>5</sort_order>
                             <show_in_default>1</show_in_default>

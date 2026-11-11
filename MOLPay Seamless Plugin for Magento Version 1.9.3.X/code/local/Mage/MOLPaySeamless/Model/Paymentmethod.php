@@ -1,13 +1,13 @@
 <?php
 /**
- * MOLPay Sdn. Bhd.
+ * Fiuu
  *
- * @package     MOLPay Magento Seamless Plugin
+ * @package     Fiuu Magento Seamless Plugin
  * @author      netbuilder <code@netbuilder.com.my>
- * @copyright   Copyright (c) 2012 - 2014, MOLPaySeamless
+ * @copyright   Copyright (c) 2012 - 2014, Fiuu
  * @link        https://fiuu.com
  * @since       Version 1.8.x.x
- * @update      MOLPay <technical@molpay.com>
+ * @update      Fiuu <technical@fiuu.com>
  * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
 */
 
@@ -123,7 +123,7 @@ class Mage_MOLPaySeamless_Model_PaymentMethod extends Mage_Payment_Model_Method_
 //        if (!$info->getMolpayseamlessPaymentChannel())
 //        {
 //          $errorCode = 'invalid_data';
-//          $errorMsg = $this->_getHelper()->__("Molpayseamless Payment Channel is a required field.\n");
+//          $errorMsg = $this->_getHelper()->__("Fiuu Seamless Payment Channel is a required field.\n");
 //        }else{
 //            $errorMsg = '';
 //            Mage::getSingleton('checkout/session')->setSessionPaymentChannel($info->getMolpayseamlessPaymentChannel()); 

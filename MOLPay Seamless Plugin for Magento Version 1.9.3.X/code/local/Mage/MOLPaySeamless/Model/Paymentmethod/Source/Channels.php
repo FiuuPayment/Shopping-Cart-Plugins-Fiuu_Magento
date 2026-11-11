@@ -1,13 +1,13 @@
 <?php
 /**
- * MOLPay Sdn. Bhd.
+ * Fiuu
  *
- * @package     MOLPay Magento Seamless Plugin
+ * @package     Fiuu Magento Seamless Plugin
  * @author      netbuilder <code@netbuilder.com.my>
- * @copyright   Copyright (c) 2012 - 2014, MOLPaySeamless
+ * @copyright   Copyright (c) 2012 - 2014, Fiuu
  * @link        https://fiuu.com
  * @since       Version 1.8.x.x
- * @update      MOLPay <technical@molpay.com>
+ * @update      Fiuu <technical@fiuu.com>
  * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
 */
 class Mage_MOLPaySeamless_Model_PaymentMethod_Source_Channels {
@@ -66,7 +66,7 @@ class Mage_MOLPaySeamless_Model_PaymentMethod_Source_Channels {
                 'label'=>'MOLWallet	Wallet',
                 'currency'=>array('MYR')),
 		  array('value'=>'cash-711', 			
-                'label'=>'711	7-Eleven(MOLPay Cash)',
+                'label'=>'711	7-Eleven(Fiuu Cash)',
                 'currency'=>array('MYR')),
 		  array('value'=>'credit',
                 'label'=>'Credit Card/ Debit Card Credit Card',
