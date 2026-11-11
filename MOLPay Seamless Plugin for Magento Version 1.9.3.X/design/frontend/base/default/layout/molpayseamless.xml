@@ -6,10 +6,10 @@
  * @package     MOLPay Magento Seamless Plugin
  * @author      netbuilder <code@netbuilder.com.my>
  * @copyright   Copyright (c) 2012 - 2014, MOLPaySeamless
- * @link        http://molpay.com
+ * @link        https://fiuu.com
  * @since       Version 1.8.x.x
  * @update      MOLPay <technical@molpay.com>
- * @filesource  https://github.com/MOLPay/Magento_Seamless_Plugin
+ * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
 */
 -->
 <layout version="0.1.0">
@@ -43,7 +43,7 @@ Default layout, loads most of the pages
                 <action method="setText">
                     <text>
                     <![CDATA[
-                        <script type="text/javascript" src="//www.onlinepayment.com.my/MOLPay/API/seamless/3.8/js/MOLPay_seamless.deco.js"></script>
+                        <script type="text/javascript" src="//pay.fiuu.com/MOLPay/API/seamless/3.28/js/MOLPay_seamless.deco.js"></script>
                     ]]>
                     </text>
                 </action>

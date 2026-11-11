@@ -5,10 +5,10 @@
  * @package     MOLPay Magento Seamless Plugin
  * @author      netbuilder <code@netbuilder.com.my>
  * @copyright   Copyright (c) 2012 - 2014, MOLPaySeamless
- * @link        http://molpay.com
+ * @link        https://fiuu.com
  * @since       Version 1.8.x.x
  * @update      MOLPay <technical@molpay.com>
- * @filesource  https://github.com/MOLPay/Magento_Seamless_Plugin
+ * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
 */
 
 class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_Front_Action {
@@ -483,7 +483,7 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
           $postData[]= $k."=".$v;
         }
         $postdata   = implode("&",$postData);
-        $url        = "https://www.onlinepayment.com.my/MOLPay/API/chkstat/returnipn.php";
+        $url        = "https://pay.fiuu.com/MOLPay/API/chkstat/returnipn.php";
         $ch         = curl_init();
         curl_setopt($ch, CURLOPT_POST           , 1     );
         curl_setopt($ch, CURLOPT_POSTFIELDS     , $postdata );
@@ -552,7 +552,7 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
         $postdata = http_build_query($dataq);
 
         try{
-            $url        = "https://api.molpay.com/MOLPay/q_by_tid.php";
+            $url        = "https://api.fiuu.com/MOLPay/q_by_tid.php";
             $ch         = curl_init();
             curl_setopt($ch, CURLOPT_POST           , 1     );
             curl_setopt($ch, CURLOPT_POSTFIELDS     , $postdata );
