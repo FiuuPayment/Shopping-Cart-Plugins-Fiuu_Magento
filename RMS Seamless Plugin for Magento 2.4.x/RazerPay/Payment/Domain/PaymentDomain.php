@@ -134,7 +134,7 @@ class PaymentDomain
         $salesOrder->setIsInProcess(true);
         $salesOrder->setState(\Magento\Sales\Model\Order::STATE_PROCESSING);
         $salesOrder->setStatus($salesOrder->getConfig()->getStateDefaultStatus($salesOrder->getState()));
-        $salesOrder->addStatusToHistory($salesOrder->getStatus(), "RazerPay transaction #{$salesOrderPayment->getTransactionId()} success.");
+        $salesOrder->addStatusToHistory($salesOrder->getStatus(), "Fiuu transaction #{$salesOrderPayment->getTransactionId()} success.");
         $dbTransaction->addObject($salesOrder);
 
         $isAuthCreditTransactionType =

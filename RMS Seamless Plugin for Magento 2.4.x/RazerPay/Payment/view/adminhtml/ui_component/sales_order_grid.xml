@@ -5,7 +5,7 @@
         <column name="razerpay_payment_refund_status">
             <settings>
                 <filter>text</filter>
-                <label translate="true">RazerPay Refund Status</label>
+                <label translate="true">Fiuu Refund Status</label>
             </settings>
         </column>
     </columns>

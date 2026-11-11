@@ -10,7 +10,7 @@
                 <model>RazerPayPaymentFacade</model>
                 <order_status>pending_payment</order_status>
                 <payment_action>initialize</payment_action>
-                <title>Razer Merchant Services</title>
+                <title>Fiuu</title>
                 <currency>MYR</currency>
                 <can_initialize>1</can_initialize>
                 <can_capture>1</can_capture>

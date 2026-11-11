@@ -22,7 +22,7 @@ define([
       }
 
       MagentoMessageList.addErrorMessage({
-        message: $t('Please select your preferred RazerPay payment channel before placing the order.')
+        message: $t('Please select your preferred Fiuu payment channel before placing the order.')
       })
 
       return false
