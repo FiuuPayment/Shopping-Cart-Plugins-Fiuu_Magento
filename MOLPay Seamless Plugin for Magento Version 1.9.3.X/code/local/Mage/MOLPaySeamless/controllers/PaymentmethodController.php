@@ -489,7 +489,7 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
           $postData[]= $k."=".$v;
         }
         $postdata   = implode("&",$postData);
-        $url        = "https://pay.fiuu.com/MOLPay/API/chkstat/returnipn.php";
+        $url        = Mage::getModel('molpayseamless/paymentmethod')->getPaymentHost()."/MOLPay/API/chkstat/returnipn.php";
         $ch         = curl_init();
         curl_setopt($ch, CURLOPT_POST           , 1     );
         curl_setopt($ch, CURLOPT_POSTFIELDS     , $postdata );
@@ -558,7 +558,7 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
         $postdata = http_build_query($dataq);
 
         try{
-            $url        = "https://api.fiuu.com/MOLPay/q_by_tid.php";
+            $url        = Mage::getModel('molpayseamless/paymentmethod')->getApiHost()."/MOLPay/q_by_tid.php";
             $ch         = curl_init();
             curl_setopt($ch, CURLOPT_POST           , 1     );
             curl_setopt($ch, CURLOPT_POSTFIELDS     , $postdata );

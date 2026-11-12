@@ -97,6 +97,19 @@ class Mage_MOLPaySeamless_Model_PaymentMethod extends Mage_Payment_Model_Method_
      }
     
     
+    // Fiuu hosts for the selected environment
+    public function isSandbox() {
+        return $this->getConfigData('environment') === 'sandbox';
+    }
+
+    public function getPaymentHost() {
+        return $this->isSandbox()? 'https://sandbox-payment.fiuu.com' : 'https://pay.fiuu.com';
+    }
+
+    public function getApiHost() {
+        return $this->isSandbox()? 'https://sandbox-api.fiuu.com' : 'https://api.fiuu.com';
+    }
+
     public function getMOLPaySeamlessUrl() {
         return Mage::getUrl( 'molpayseamless/paymentmethod/success', array('_secure' => true));
     }
