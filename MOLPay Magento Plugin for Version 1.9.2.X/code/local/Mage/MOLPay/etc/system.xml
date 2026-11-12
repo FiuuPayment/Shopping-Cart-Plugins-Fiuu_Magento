@@ -38,6 +38,16 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </login>
+                        <environment translate="label">
+                            <label>Fiuu Environment</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>molpay/paymentmethod_source_environment</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Select Sandbox to test with a Fiuu sandbox account.</comment>
+                        </environment>
                         <transkey translate="label">
                             <label>Fiuu Verify Key</label>
                             <frontend_type>text</frontend_type>
@@ -46,6 +56,15 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
                         </transkey>
+                        <secret_key translate="label">
+                            <label>Fiuu Secret Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Required to verify the payment response from Fiuu. Get it from the Fiuu Merchant Portal.</comment>
+                        </secret_key>
                         <encrytype translate="label">
                             <label>Fiuu Encryption Method</label>
                             <frontend_type>select</frontend_type>
@@ -60,7 +79,8 @@
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>6</sort_order>
-                            <show_in_default>1</show_in_website>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
                         </extended_vcode>
                         <paymentdescription translate="label">

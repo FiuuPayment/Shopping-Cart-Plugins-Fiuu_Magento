@@ -1,13 +1,13 @@
 <?php
 /**
- * Razer Merchant Services Sdn. Bhd.
+ * Fiuu
  *
  * @package     Fiuu Magento Plugin
  * @author      netbuilder <code@netbuilder.com.my>
- * @copyright   Copyright (c) 2012 - 2016, MOLPay
+ * @copyright   Copyright (c) 2012 - 2016, Fiuu
  * @link        http://fiuu.com
  * @since       Version 1.9.x.x
- * @update      MOLPay <technical@fiuu.com>
+ * @update      Fiuu <technical@fiuu.com>
  * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
  */
 
@@ -16,7 +16,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
     protected $_order;
 
     /**
-     * When a customer chooses MOLPay on Checkout/Payment page
+     * When a customer chooses Fiuu on Checkout/Payment page
      *
      */
     public function redirectAction() {
@@ -24,7 +24,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
     }
 
     /**
-     * When MOLPay return the order information at this point is in POST variables
+     * When Fiuu return the order information at this point is in POST variables
      *
      * @return boolean
      */
@@ -34,8 +34,8 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
             return;
         }
 
-        $this->_ack($P);
         $P = $this->getRequest()->getPost();
+        $this->_ack($P);
         $TypeOfReturn = "ReturnURL";
         $etcAmt ='';
 
@@ -50,7 +50,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
             $this->_redirect('checkout/cart');
             return;
         }else if( $order->getPayment()->getMethod() !=="molpay" ) {
-            //Mage::throwException($this->__('Payment Method is not MOLPay !'));
+            //Mage::throwException($this->__('Payment Method is not Fiuu !'));
             $this->_redirect('checkout/cart');
             return;
         }else if(ucfirst($order_status)=="Processing"){
@@ -95,7 +95,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
 
                 }
                 return;
-            }else if( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $N->getConfigData('transkey'), $P )) {
+            }else if( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $this->_getSecretKey($N), $P )) {
                 $currency_code = $order->getOrderCurrencyCode();
                 if( $currency_code !=="MYR" ) {
                     $amount = $N->MYRtoXXX( $P['amount'] ,  $currency_code );
@@ -107,7 +107,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
 
                 $order->getPayment()->setTransactionId( $P['tranID'] );
 
-                if($this->_createInvoice($order,$N,$P,$TypeOfReturn)) {
+                if($this->_createInvoice($order,$N,$P,$TypeOfReturn,$etcAmt)) {
                     $order->sendNewOrderEmail();
                 }
 
@@ -139,13 +139,14 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
         if($P['nbcb'] == 2) {
             $order = Mage::getModel('sales/order')->loadByIncrementId( $P['orderid'] );
             $orderId = $order->getId();
+            $order_status = $order->getStatus();
             $N = Mage::getModel('molpay/paymentmethod');
 
             if(!isset($orderId)){
                 Mage::throwException($this->__('Order identifier is not valid!'));
                 return false;
             }elseif( $order->getPayment()->getMethod() !=="molpay" ) {
-                Mage::throwException($this->__('Payment Method is not MOLPay !'));
+                Mage::throwException($this->__('Payment Method is not Fiuu !'));
                 return false;
             }else if(ucfirst($order_status)=="Processing"){
                 // Order has been placed. To avoid overide PROCESSING to FAILED
@@ -168,7 +169,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
                         $order->save();
                     }
                     return;
-                }else if ( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $N->getConfigData('transkey'), $P )) {
+                }else if ( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $this->_getSecretKey($N), $P )) {
                     $currency_code = $order->getOrderCurrencyCode();
                     if($currency_code !=="MYR") {
                         $amount= $N->MYRtoXXX( $P['amount'] ,  $currency_code );
@@ -180,7 +181,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
 
                     $order->getPayment()->setTransactionId( $P['tranID'] );
                     try{
-                        if($this->_createInvoice($order,$N,$P,$TypeOfReturn)) {
+                        if($this->_createInvoice($order,$N,$P,$TypeOfReturn,$etcAmt)) {
                             $order->sendNewOrderEmail();
                         }
                     }catch (Mage_Core_Exception $e){
@@ -216,13 +217,14 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
         if($P['nbcb'] == 1) {
             $order = Mage::getModel('sales/order')->loadByIncrementId( $P['orderid'] );
             $orderId = $order->getId();
+            $order_status = $order->getStatus();
             $N = Mage::getModel('molpay/paymentmethod');
 
             if(!isset($orderId)){
                 Mage::throwException($this->__('Order identifier is not valid!'));
                 return false;
             }elseif( $order->getPayment()->getMethod() !=="molpay" ) {
-                Mage::throwException($this->__('Payment Method is not MOLPay !'));
+                Mage::throwException($this->__('Payment Method is not Fiuu !'));
                 return false;
             }else if(ucfirst($order_status)=="Processing"){
                 // Order has been placed. To avoid overide PROCESSING to FAILED
@@ -243,7 +245,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
                         $order->save();
                     }
                     return;
-                }else if( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $N->getConfigData('transkey'), $P )) {
+                }else if( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $this->_getSecretKey($N), $P )) {
                     $currency_code = $order->getOrderCurrencyCode();
                     if( $currency_code !=="MYR" ){
                         $amount= $N->MYRtoXXX( $P['amount'] ,  $currency_code );
@@ -255,7 +257,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
 
                     $order->getPayment()->setTransactionId( $P['tranID'] );
                     try{
-                        if($this->_createInvoice($order,$N,$P,$TypeOfReturn)) {
+                        if($this->_createInvoice($order,$N,$P,$TypeOfReturn,$etcAmt)) {
                             $order->sendNewOrderEmail();
                         }
                     }catch (Mage_Core_Exception $e){
@@ -299,6 +301,12 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
 
 
     /* Function -------------------------------------------------------------------------------------------------------- */
+    // Secret key for the skey check; falls back to the verify key when not set
+    protected function _getSecretKey( $N ) {
+        $secretKey = trim( (string) $N->getConfigData('secret_key') );
+        return ( $secretKey !== '' )? $secretKey : $N->getConfigData('transkey');
+    }
+
     protected function _matchkey( $entype, $merchantID , $vkey , $P ) {
         $enf = ( $entype == "sha1" )? "sha1" : "md5";
         $skey = $enf( $P['tranID'].$P['orderid'].$P['status'].$merchantID.$P['amount'].$P['currency'] );
@@ -307,7 +315,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
     }
 
     // Creating Invoice : Convert order into invoice
-    protected function _createInvoice(Mage_Sales_Model_Order $order,$N,$P,$TypeOfReturn) {
+    protected function _createInvoice(Mage_Sales_Model_Order $order,$N,$P,$TypeOfReturn,$etcAmt = '') {
         /*if( $order->canInvoice() && ($order->hasInvoices() < 1));
             else
         return false;
@@ -326,7 +334,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
         $order->setState(
             Mage_Sales_Model_Order::STATE_PROCESSING,
             Mage_Sales_Model_Order::STATE_PROCESSING,
-                "Response from MOLPAY - ".$TypeOfReturn." (CAPTURED)"
+                "Response from Fiuu - ".$TypeOfReturn." (CAPTURED)"
                 . "\n<br>Invoice #".$invoice->getIncrementId().""
                 . "\n<br>Amount: ".$P['currency']." ".$P['amount'].$etcAmt
                 . "\n<br>AppCode: " .$P['appcode']
@@ -340,14 +348,14 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
         return true;
     }
 
-    // Send acknowlodge to MOLPay server
+    // Send acknowlodge to Fiuu server
     public function _ack($P) {
         $P['treq'] = 1;
-        while ( list($k,$v) = each($P) ) {
+        foreach ( $P as $k => $v ) {
           $postData[]= $k."=".$v;
         }
         $postdata   = implode("&",$postData);
-        $url        = "https://pay.fiuu.com/MOLPay/API/chkstat/returnipn.php";
+        $url        = Mage::getModel('molpay/paymentmethod')->getPaymentHost()."/MOLPay/API/chkstat/returnipn.php";
         $ch         = curl_init();
         curl_setopt($ch, CURLOPT_POST           , 1     );
         curl_setopt($ch, CURLOPT_POSTFIELDS     , $postdata );
@@ -387,7 +395,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
             $order->setState(
                 $status_update,
                 $status_update,
-                'Response from MOLPAY - ' .$TypeOfReturn. ' (' .$status. ')'
+                'Response from Fiuu - ' .$TypeOfReturn. ' (' .$status. ')'
                 . "\n<br>TransactionID: " . $P['tranID']
                 . "\n<br>Amount: " . $P['currency'] . " " . $P['amount'] . $etcAmt
                 . "\n<br>PaidDate: " . $P['paydate']
