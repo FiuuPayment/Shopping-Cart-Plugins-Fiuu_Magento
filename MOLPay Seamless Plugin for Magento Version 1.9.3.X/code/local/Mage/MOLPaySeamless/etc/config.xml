@@ -104,6 +104,7 @@
                 <extended_vcode>0</extended_vcode>
                 <!--<test>1</test>-->
                 <transkey></transkey>
+                <secret_key></secret_key>
                 <allowspecific>0</allowspecific>
                 <payment_action>sale</payment_action>
             </molpayseamless>
