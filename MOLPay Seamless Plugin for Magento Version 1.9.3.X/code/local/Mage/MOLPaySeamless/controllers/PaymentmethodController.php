@@ -485,7 +485,7 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
     // Send acknowlodge to Fiuu server
     public function _ack($P) {
         $P['treq'] = 1;
-        while ( list($k,$v) = each($P) ) {
+        foreach ( $P as $k => $v ) {
           $postData[]= $k."=".$v;
         }
         $postdata   = implode("&",$postData);
