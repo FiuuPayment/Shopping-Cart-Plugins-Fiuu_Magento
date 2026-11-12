@@ -107,7 +107,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
 
                 $order->getPayment()->setTransactionId( $P['tranID'] );
 
-                if($this->_createInvoice($order,$N,$P,$TypeOfReturn)) {
+                if($this->_createInvoice($order,$N,$P,$TypeOfReturn,$etcAmt)) {
                     $order->sendNewOrderEmail();
                 }
 
@@ -181,7 +181,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
 
                     $order->getPayment()->setTransactionId( $P['tranID'] );
                     try{
-                        if($this->_createInvoice($order,$N,$P,$TypeOfReturn)) {
+                        if($this->_createInvoice($order,$N,$P,$TypeOfReturn,$etcAmt)) {
                             $order->sendNewOrderEmail();
                         }
                     }catch (Mage_Core_Exception $e){
@@ -257,7 +257,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
 
                     $order->getPayment()->setTransactionId( $P['tranID'] );
                     try{
-                        if($this->_createInvoice($order,$N,$P,$TypeOfReturn)) {
+                        if($this->_createInvoice($order,$N,$P,$TypeOfReturn,$etcAmt)) {
                             $order->sendNewOrderEmail();
                         }
                     }catch (Mage_Core_Exception $e){
@@ -315,7 +315,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
     }
 
     // Creating Invoice : Convert order into invoice
-    protected function _createInvoice(Mage_Sales_Model_Order $order,$N,$P,$TypeOfReturn) {
+    protected function _createInvoice(Mage_Sales_Model_Order $order,$N,$P,$TypeOfReturn,$etcAmt = '') {
         /*if( $order->canInvoice() && ($order->hasInvoices() < 1));
             else
         return false;
