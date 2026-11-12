@@ -139,6 +139,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
         if($P['nbcb'] == 2) {
             $order = Mage::getModel('sales/order')->loadByIncrementId( $P['orderid'] );
             $orderId = $order->getId();
+            $order_status = $order->getStatus();
             $N = Mage::getModel('molpay/paymentmethod');
 
             if(!isset($orderId)){
@@ -216,6 +217,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
         if($P['nbcb'] == 1) {
             $order = Mage::getModel('sales/order')->loadByIncrementId( $P['orderid'] );
             $orderId = $order->getId();
+            $order_status = $order->getStatus();
             $N = Mage::getModel('molpay/paymentmethod');
 
             if(!isset($orderId)){
