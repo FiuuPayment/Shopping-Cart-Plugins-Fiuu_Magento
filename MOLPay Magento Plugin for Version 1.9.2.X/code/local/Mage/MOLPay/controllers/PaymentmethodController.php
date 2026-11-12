@@ -34,8 +34,8 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
             return;
         }
 
-        $this->_ack($P);
         $P = $this->getRequest()->getPost();
+        $this->_ack($P);
         $TypeOfReturn = "ReturnURL";
         $etcAmt ='';
 
