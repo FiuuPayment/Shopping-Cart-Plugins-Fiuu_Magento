@@ -95,6 +95,7 @@
                 <paymentdescription>
                   <![CDATA[You will be redirected to Fiuu website when you place an order.<br>]]>
                 </paymentdescription> 
+                <environment>production</environment>
                 <encrytype>md5</encrytype>
                 <extended_vcode>0</extended_vcode>
                 <!--<test>1</test>-->

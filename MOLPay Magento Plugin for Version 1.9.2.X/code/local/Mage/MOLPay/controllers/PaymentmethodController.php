@@ -353,7 +353,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
           $postData[]= $k."=".$v;
         }
         $postdata   = implode("&",$postData);
-        $url        = "https://pay.fiuu.com/MOLPay/API/chkstat/returnipn.php";
+        $url        = Mage::getModel('molpay/paymentmethod')->getPaymentHost()."/MOLPay/API/chkstat/returnipn.php";
         $ch         = curl_init();
         curl_setopt($ch, CURLOPT_POST           , 1     );
         curl_setopt($ch, CURLOPT_POSTFIELDS     , $postdata );

@@ -142,7 +142,12 @@ class Mage_MOLPay_Model_PaymentMethod extends Mage_Payment_Model_Method_Abstract
     }
 
     public function getMOLPayUrl() {
-        return 'https://pay.fiuu.com/MOLPay/pay/'.$this->getConfigData('login')."/";
+        return $this->getPaymentHost().'/MOLPay/pay/'.$this->getConfigData('login')."/";
+    }
+
+    // Fiuu payment host for the selected environment
+    public function getPaymentHost() {
+        return ( $this->getConfigData('environment') === 'sandbox' )? 'https://sandbox-payment.fiuu.com' : 'https://pay.fiuu.com';
     }
 
     /**
