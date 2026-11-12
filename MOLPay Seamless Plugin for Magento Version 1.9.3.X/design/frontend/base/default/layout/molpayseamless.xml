@@ -39,15 +39,7 @@ Default layout, loads most of the pages
         
         <!-- Add seamless API javascript code. Put it before end of </body> or inside <head> -->
         <reference name="before_body_end">
-            <block type="core/text" name="MOLPaySeamlessAPI">
-                <action method="setText">
-                    <text>
-                    <![CDATA[
-                        <script type="text/javascript" src="//pay.fiuu.com/MOLPay/API/seamless/3.28/js/MOLPay_seamless.deco.js"></script>
-                    ]]>
-                    </text>
-                </action>
-            </block>
+            <block type="molpayseamless/seamlessjs" name="MOLPaySeamlessAPI"/>
         </reference>
 
     </default>
