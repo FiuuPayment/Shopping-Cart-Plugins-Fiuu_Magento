@@ -95,7 +95,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
 
                 }
                 return;
-            }else if( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $N->getConfigData('transkey'), $P )) {
+            }else if( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $this->_getSecretKey($N), $P )) {
                 $currency_code = $order->getOrderCurrencyCode();
                 if( $currency_code !=="MYR" ) {
                     $amount = $N->MYRtoXXX( $P['amount'] ,  $currency_code );
@@ -168,7 +168,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
                         $order->save();
                     }
                     return;
-                }else if ( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $N->getConfigData('transkey'), $P )) {
+                }else if ( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $this->_getSecretKey($N), $P )) {
                     $currency_code = $order->getOrderCurrencyCode();
                     if($currency_code !=="MYR") {
                         $amount= $N->MYRtoXXX( $P['amount'] ,  $currency_code );
@@ -243,7 +243,7 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
                         $order->save();
                     }
                     return;
-                }else if( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $N->getConfigData('transkey'), $P )) {
+                }else if( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $this->_getSecretKey($N), $P )) {
                     $currency_code = $order->getOrderCurrencyCode();
                     if( $currency_code !=="MYR" ){
                         $amount= $N->MYRtoXXX( $P['amount'] ,  $currency_code );
@@ -299,6 +299,12 @@ class Mage_MOLPay_PaymentMethodController extends Mage_Core_Controller_Front_Act
 
 
     /* Function -------------------------------------------------------------------------------------------------------- */
+    // Secret key for the skey check; falls back to the verify key when not set
+    protected function _getSecretKey( $N ) {
+        $secretKey = trim( (string) $N->getConfigData('secret_key') );
+        return ( $secretKey !== '' )? $secretKey : $N->getConfigData('transkey');
+    }
+
     protected function _matchkey( $entype, $merchantID , $vkey , $P ) {
         $enf = ( $entype == "sha1" )? "sha1" : "md5";
         $skey = $enf( $P['tranID'].$P['orderid'].$P['status'].$merchantID.$P['amount'].$P['currency'] );
