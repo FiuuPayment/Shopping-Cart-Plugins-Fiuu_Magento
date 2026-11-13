@@ -16,8 +16,8 @@ Fiuu is not responsible for any problems that might arise from the use of this m
 
 # Download
 **Seamless Integration**
-* [Fiuu Seamless Plugin for Magento Version 1.9.3.X - Default Checkout](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento/releases/tag/v1.9.3.x)
-* [Fiuu Seamless Plugin for Magento Version 1.9.3.X - IWD One Page Checkout](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento/tree/Version-1.9.3.x/dist) Go to [IWD One Page Checkout Plugin](https://www.magentocommerce.com/magento-connect/checkout-suite-one-page-checkout.html)
+* [Fiuu Seamless Plugin for Magento Version 1.9.3.X - Default Checkout](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento/tree/Version-1.9.3.x/dist)
+* [Fiuu Seamless Plugin for Magento Version 1.9.3.X - IWD One Page Checkout](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento/tree/Version-1.9.3.x/dist) Go to [IWD One Page Checkout Plugin](https://www.iwdagency.com/products/checkout-suite-m1/)
 
 # Installations & Configurations
 [Go to Wiki](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento/wiki/Installation)
