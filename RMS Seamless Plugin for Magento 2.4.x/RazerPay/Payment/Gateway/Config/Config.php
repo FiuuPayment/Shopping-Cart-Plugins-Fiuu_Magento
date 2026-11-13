@@ -26,7 +26,7 @@ class Config extends \Magento\Payment\Gateway\Config\Config
     public const SANDBOX_INQUIRY_URL = 'https://sandbox-api.fiuu.com/';
 
     public const PRODUCTION_SEAMLESS_JS_URL = 'https://pay.fiuu.com/RMS/API/seamless/3.28/js/MOLPay_seamless.deco.js';
-    public const SANDBOX_SEAMLESS_JS_URL = 'https://sandbox-payment.fiuu.com/RMS/API/seamless/3.28/js/MOLPay_seamless.deco.js';
+    public const SANDBOX_SEAMLESS_JS_URL = 'https://sandbox-payment.fiuu.com/RMS/API/seamless/latest/js/MOLPay_seamless.deco.js';
 
     public const PAYMENT_STATUS_SUCCESS = '00';
     public const PAYMENT_STATUS_FAIL = '11';
