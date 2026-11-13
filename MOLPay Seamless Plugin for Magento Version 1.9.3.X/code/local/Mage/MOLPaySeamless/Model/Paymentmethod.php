@@ -1,14 +1,14 @@
 <?php
 /**
- * MOLPay Sdn. Bhd.
+ * Fiuu
  *
- * @package     MOLPay Magento Seamless Plugin
+ * @package     Fiuu Magento Seamless Plugin
  * @author      netbuilder <code@netbuilder.com.my>
- * @copyright   Copyright (c) 2012 - 2014, MOLPaySeamless
- * @link        http://molpay.com
+ * @copyright   Copyright (c) 2012 - 2014, Fiuu
+ * @link        https://fiuu.com
  * @since       Version 1.8.x.x
- * @update      MOLPay <technical@molpay.com>
- * @filesource  https://github.com/MOLPay/Magento_Seamless_Plugin
+ * @update      Fiuu <technical@fiuu.com>
+ * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
 */
 
 class Mage_MOLPaySeamless_Model_PaymentMethod extends Mage_Payment_Model_Method_Abstract {
@@ -97,6 +97,19 @@ class Mage_MOLPaySeamless_Model_PaymentMethod extends Mage_Payment_Model_Method_
      }
     
     
+    // Fiuu hosts for the selected environment
+    public function isSandbox() {
+        return $this->getConfigData('environment') === 'sandbox';
+    }
+
+    public function getPaymentHost() {
+        return $this->isSandbox()? 'https://sandbox-payment.fiuu.com' : 'https://pay.fiuu.com';
+    }
+
+    public function getApiHost() {
+        return $this->isSandbox()? 'https://sandbox-api.fiuu.com' : 'https://api.fiuu.com';
+    }
+
     public function getMOLPaySeamlessUrl() {
         return Mage::getUrl( 'molpayseamless/paymentmethod/success', array('_secure' => true));
     }
@@ -123,7 +136,7 @@ class Mage_MOLPaySeamless_Model_PaymentMethod extends Mage_Payment_Model_Method_
 //        if (!$info->getMolpayseamlessPaymentChannel())
 //        {
 //          $errorCode = 'invalid_data';
-//          $errorMsg = $this->_getHelper()->__("Molpayseamless Payment Channel is a required field.\n");
+//          $errorMsg = $this->_getHelper()->__("Fiuu Seamless Payment Channel is a required field.\n");
 //        }else{
 //            $errorMsg = '';
 //            Mage::getSingleton('checkout/session')->setSessionPaymentChannel($info->getMolpayseamlessPaymentChannel()); 

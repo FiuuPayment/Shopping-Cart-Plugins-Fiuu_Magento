@@ -13,7 +13,7 @@
         for($i=0;$i<count($source_channels);$i++){
             foreach($source_channels[$i]['currency'] as $currency){
                 if($preset_channel == $source_channels[$i]['value'] && $currency == $currency_code){
-                    if($this->htmlEscape($this->getInfoData('molpayseamless_payment_channel'))){
+                    if($this->escapeHtml($this->getInfoData('molpayseamless_payment_channel'))){
                         $select .= "<option selected='selected' value='".$preset_channel."'>".$source_channels[$i]['label']."</option>";
                     }else{
                         $select .= "<option value='".$preset_channel."'>".$source_channels[$i]['label']."</option>";
