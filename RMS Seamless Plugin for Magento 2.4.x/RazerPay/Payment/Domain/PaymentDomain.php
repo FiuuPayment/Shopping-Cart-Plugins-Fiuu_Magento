@@ -21,6 +21,8 @@ class PaymentDomain
 
     protected \RazerPay\Payment\Domain\Api\ReturnIpnRequestFactory $paymentReturnIpnRequestFactory;
 
+    protected \RazerPay\Payment\Domain\Api\CaptureRequestFactory $paymentCaptureRequestFactory;
+
     protected \RazerPay\Payment\Gateway\Config\Config $paymentGatewayConfig;
 
     public function __construct(
