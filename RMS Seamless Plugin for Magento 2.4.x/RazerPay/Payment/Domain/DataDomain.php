@@ -60,8 +60,8 @@ class DataDomain
             function (array $channel) {
                 return [
                     'title' => $channel['title'],
-                    'request_code' => $channel['channel_map']['seamless']['request'],
-                    'response_code' => $channel['channel_map']['seamless']['response'],
+                    'request_code' => $channel['channel_map']['seamless']['request'] ?? null,
+                    'response_code' => $channel['channel_map']['seamless']['response'] ?? null,
                     'logo' => $channel['logo_url_120x43'],
                     'type' => $channel['channel_type'],
                 ];
