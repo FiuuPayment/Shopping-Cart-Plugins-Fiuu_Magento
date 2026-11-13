@@ -7,5 +7,24 @@
                 <value id="razerpay-payment-sandbox-base" type="host">https://sandbox-payment.fiuu.com</value>
             </values>
         </policy>
+        <policy id="script-src">
+            <values>
+                <value id="razerpay-payment-base" type="host">https://pay.fiuu.com</value>
+                <value id="razerpay-payment-sandbox-base" type="host">https://sandbox-payment.fiuu.com</value>
+            </values>
+        </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="razerpay-payment-base" type="host">https://pay.fiuu.com</value>
+                <value id="razerpay-payment-sandbox-base" type="host">https://sandbox-payment.fiuu.com</value>
+            </values>
+        </policy>
+        <policy id="img-src">
+            <values>
+                <value id="razerpay-payment-base" type="host">https://pay.fiuu.com</value>
+                <value id="razerpay-payment-sandbox-base" type="host">https://sandbox-payment.fiuu.com</value>
+                <value id="razerpay-payment-channel-logo" type="host">https://d2x73ruoixi2ei.cloudfront.net</value>
+            </values>
+        </policy>
     </policies>
 </csp_whitelist>
