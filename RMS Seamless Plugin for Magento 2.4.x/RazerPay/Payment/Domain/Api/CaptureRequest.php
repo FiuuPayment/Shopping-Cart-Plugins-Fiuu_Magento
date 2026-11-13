@@ -6,9 +6,9 @@ class CaptureRequest extends Request
 {
     protected string $method = \Magento\Framework\App\Request\Http::METHOD_POST;
 
-    protected string $productionEndpoint = 'https://api.merchant.razer.com/RMS/API/capstxn/index.php';
+    protected string $productionEndpoint = 'https://api.fiuu.com/RMS/API/capstxn/index.php';
 
-    protected string $sandboxEndpoint = 'https://sandbox.merchant.razer.com/RMS/API/capstxn/index.php';
+    protected string $sandboxEndpoint = 'https://sandbox-api.fiuu.com/RMS/API/capstxn/index.php';
 
     public const ERRORS = [
         '11' => 'Failure',
@@ -22,7 +22,7 @@ class CaptureRequest extends Request
         '20' => 'Temporary out of service',
         '21' => 'Authorization expired',
         '23' => 'Not allowed to perform partial capture',
-        '99' => 'General Error(Please check with RMS Support)',
+        '99' => 'General Error(Please check with Fiuu Support)',
     ];
 
     protected function headers(): array

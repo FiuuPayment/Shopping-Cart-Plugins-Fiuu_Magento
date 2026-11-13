@@ -12,9 +12,9 @@ The Fiuu Magento Plugin makes it easy to add Fiuu payment gateway to your Magent
 Important Notice 
 ----------------
 
-* As 2nd July 2020, for those who are already used this plugin, kindly change https://sandbox.molpay.com/ to https://sandbox.fiuu.com/ to avoid any unnecessary error during your testing payment in Fiuu Sandbox Environment.
+* For testing, use the Fiuu Sandbox Environment: https://sandbox-payment.fiuu.com/
 * Latest plugin has published with respective changes as in this link 
-https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento/blob/master/RMS%20Seamless%20Plugin%20for%20Magento%202.4.x/magento2-module-razerpay-payment-1.0.0-20230807.zip
+https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento/tree/master/RMS%20Seamless%20Plugin%20for%20Magento%202.4.x
 
 Prerequisites
 -------------
@@ -27,7 +27,7 @@ Documentation
 -------------
 
 * [Getting Started](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento/wiki#getting-started) - Everything you need to begin using this plugins.
-* [Contributing to the Plugin](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento/wiki/Contributing-to-the-Plugin)
+* [Contributing to the Plugin](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento/pulls)
 
 General documentation regarding the Fiuu API and related payment flows can be found on the Fiuu Merchant Admin Site.
 
