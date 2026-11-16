@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!--
 /**
- * MOLPay Sdn. Bhd.
+ * Fiuu
  *
- * @package     MOLPay Magento Seamless Plugin
+ * @package     Fiuu Magento Seamless Plugin
  * @author      netbuilder <code@netbuilder.com.my>
- * @copyright   Copyright (c) 2012 - 2014, MOLPaySeamless
- * @link        http://molpay.com
+ * @copyright   Copyright (c) 2012 - 2014, Fiuu
+ * @link        https://fiuu.com
  * @since       Version 1.8.x.x
- * @update      MOLPay <technical@molpay.com>
- * @filesource  https://github.com/MOLPay/Magento_Seamless_Plugin
+ * @update      Fiuu <technical@fiuu.com>
+ * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
 */
 -->
 <layout version="0.1.0">
@@ -39,15 +39,7 @@ Default layout, loads most of the pages
         
         <!-- Add seamless API javascript code. Put it before end of </body> or inside <head> -->
         <reference name="before_body_end">
-            <block type="core/text" name="MOLPaySeamlessAPI">
-                <action method="setText">
-                    <text>
-                    <![CDATA[
-                        <script type="text/javascript" src="//www.onlinepayment.com.my/MOLPay/API/seamless/3.8/js/MOLPay_seamless.deco.js"></script>
-                    ]]>
-                    </text>
-                </action>
-            </block>
+            <block type="molpayseamless/seamlessjs" name="MOLPaySeamlessAPI"/>
         </reference>
 
     </default>

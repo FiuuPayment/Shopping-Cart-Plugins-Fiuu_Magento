@@ -1,14 +1,14 @@
 <?php
 /**
- * MOLPay Sdn. Bhd.
+ * Fiuu
  *
- * @package     MOLPay Magento Seamless Plugin
+ * @package     Fiuu Magento Seamless Plugin
  * @author      netbuilder <code@netbuilder.com.my>
- * @copyright   Copyright (c) 2012 - 2014, MOLPaySeamless
- * @link        http://molpay.com
+ * @copyright   Copyright (c) 2012 - 2014, Fiuu
+ * @link        https://fiuu.com
  * @since       Version 1.8.x.x
- * @update      MOLPay <technical@molpay.com>
- * @filesource  https://github.com/MOLPay/Magento_Seamless_Plugin
+ * @update      Fiuu <technical@fiuu.com>
+ * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
 */
 
 // app/code/local/Envato/Custompaymentmethod/Block/Info/Custompaymentmethod.php

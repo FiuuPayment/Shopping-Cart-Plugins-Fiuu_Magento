@@ -1,14 +1,14 @@
 <?php
 /**
- * MOLPay Sdn. Bhd.
+ * Fiuu
  *
- * @package     MOLPay Magento Seamless Plugin
+ * @package     Fiuu Magento Seamless Plugin
  * @author      netbuilder <code@netbuilder.com.my>
- * @copyright   Copyright (c) 2012 - 2014, MOLPaySeamless
- * @link        http://molpay.com
+ * @copyright   Copyright (c) 2012 - 2014, Fiuu
+ * @link        https://fiuu.com
  * @since       Version 1.8.x.x
- * @update      MOLPay <technical@molpay.com>
- * @filesource  https://github.com/MOLPay/Magento_Seamless_Plugin
+ * @update      Fiuu <technical@fiuu.com>
+ * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
 */
 
 class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_Front_Action {
@@ -92,6 +92,9 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
 
             $ven = $pm->getConfigData('encrytype');
             $vk = $sArr['mpsamount'] . $pm->getConfigData('login') . $quote->getReservedOrderId() . $pm->getConfigData('transkey');
+            if ($pm->getConfigData('extended_vcode')) {
+                $vk = $sArr['mpsamount'] . $pm->getConfigData('login') . $quote->getReservedOrderId() . $pm->getConfigData('transkey') . $sArr['mpscurrency'];
+            }
 
             $sArr['mpsvcode'] = ( $ven =="sha1" )? sha1( $vk ) : md5( $vk );
 
@@ -141,7 +144,7 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
     }
 
     /**
-    * When MOLPaySeamless return the order information at this point is in POST variables
+    * When Fiuu Seamless return the order information at this point is in POST variables
     *
     * @return boolean
     */
@@ -182,23 +185,23 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
             if($P['status'] == '11') {
                 /*User Case: Buyer redirect to merchant website (return URL)*/
                 /*
-                *   Case 1: After buyer cancal payment at online banking, MOLPay get direct result of payment from Bank, and will
+                *   Case 1: After buyer cancal payment at online banking, Fiuu get direct result of payment from Bank, and will
                 *   send status 11 to merchant website(Normal Case)
                 *
                 *   Case 2: Buyer successfully makes payment on onlinebanking, but bank has late to return the result 
-                *   of payment to MOLPay and at the same time MOLPay has to bring buyer redirect 
+                *   of payment to Fiuu and at the same time Fiuu has to bring buyer redirect 
                 *   to merchant website with status 11 ( this status does not mean actual failed payment )
                 *   - In buyer view, buyer will see page as "Order has been placed"
-                *   - MOLPay will send lastest status of payment to merchant website through callbakc URL.
+                *   - Fiuu will send lastest status of payment to merchant website through callbakc URL.
                 *
                 *   To identify this is actual failed payment or pending status from Bank site, solution is below:
-                *   Added function query API to MOLPay to get actual status of transaction at MOLPay site.
+                *   Added function query API to Fiuu to get actual status of transaction at Fiuu site.
                 *   query resulting :
                 *   1- StatCode = 11, means transaction is absolutely failed payment at bank
                 *   2- StatCode = 22, means transaction is pending and waiting for latest result from bank
                 */
 
-                //Query status at MOLPay thru API
+                //Query status at Fiuu thru API
                 $qtxn = $this->queryStatusTransaction($P);
 
                 if( !empty($qtxn) ){
@@ -228,7 +231,7 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
             }
             return;
 
-        }else if( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $N->getConfigData('transkey'), $P ) ) {
+        }else if( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $this->_getSecretKey($N), $P ) ) {
 
             //If order status is not set to processing yet
             if(ucfirst($order_status)!="Processing") {
@@ -298,7 +301,7 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
                 Mage::throwException($this->__('Order identifier is not valid!'));
                 return false;
             }else if( $order->getPayment()->getMethod() !=="molpayseamless" ) {
-                Mage::throwException($this->__('Payment Method is not MOLPaySeamless !'));
+                Mage::throwException($this->__('Payment Method is not Fiuu Seamless !'));
                 return false;
             }else if(ucfirst($order_status)=="Processing"){
                 // Order has been placed. To avoid duplicate order
@@ -313,7 +316,7 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
                         $order->save();
                     }
                     return;
-                } else if( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $N->getConfigData('transkey'), $P )) {
+                } else if( $P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $this->_getSecretKey($N), $P )) {
                     if(ucfirst($order_status)!="Processing") { 
                         $order->getPayment()->setTransactionId( $P['tranID'] );
                         try{
@@ -366,7 +369,7 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
                 Mage::throwException($this->__('Order identifier is not valid!'));
                 return false;
             }else if( $order->getPayment()->getMethod() !=="molpayseamless" ) {
-                Mage::throwException($this->__('Payment Method is not MOLPaySeamless !'));
+                Mage::throwException($this->__('Payment Method is not Fiuu Seamless !'));
                 return false;
             }
             else if(ucfirst($order_status)=="Processing"){
@@ -374,7 +377,7 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
                 return false;
             }
             else{
-                if( ($P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $N->getConfigData('transkey'), $P )) && ucfirst($order_status)!="Processing")
+                if( ($P['status'] === '00' && $this->_matchkey( $N->getConfigData('encrytype') , $N->getConfigData('login') , $this->_getSecretKey($N), $P )) && ucfirst($order_status)!="Processing")
                 {
                     $order->getPayment()->setTransactionId( $P['tranID'] );
 
@@ -435,6 +438,12 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
 
 
     /* Function -------------------------------------------------------------------------------------------------------- */
+    // Secret key for the skey check; falls back to the verify key when not set
+    protected function _getSecretKey( $N ) {
+        $secretKey = trim( (string) $N->getConfigData('secret_key') );
+        return ( $secretKey !== '' )? $secretKey : $N->getConfigData('transkey');
+    }
+
     protected function _matchkey( $entype, $merchantID , $vkey , $P ) {
         $enf = ( $entype == "sha1" )? "sha1" : "md5";
         $skey = $enf( $P['tranID'].$P['orderid'].$P['status'].$merchantID.$P['amount'].$P['currency'] );
@@ -459,7 +468,7 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
         $order->setState(
             Mage_Sales_Model_Order::STATE_PROCESSING,
             Mage_Sales_Model_Order::STATE_PROCESSING,
-                "Response from MOLPAY - ".$TypeOfReturn." (CAPTURED)"
+                "Response from Fiuu - ".$TypeOfReturn." (CAPTURED)"
                 . "\n<br>Invoice #".$invoice->getIncrementId().""
                 . "\n<br>Amount: ".$P['currency']." ".$P['amount']
                 . "\n<br>AppCode: " .$P['appcode']
@@ -473,14 +482,14 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
         return true;
     }
 
-    // Send acknowlodge to MOLPay server
+    // Send acknowlodge to Fiuu server
     public function _ack($P) {
         $P['treq'] = 1;
-        while ( list($k,$v) = each($P) ) {
+        foreach ( $P as $k => $v ) {
           $postData[]= $k."=".$v;
         }
         $postdata   = implode("&",$postData);
-        $url        = "https://www.onlinepayment.com.my/MOLPay/API/chkstat/returnipn.php";
+        $url        = Mage::getModel('molpayseamless/paymentmethod')->getPaymentHost()."/MOLPay/API/chkstat/returnipn.php";
         $ch         = curl_init();
         curl_setopt($ch, CURLOPT_POST           , 1     );
         curl_setopt($ch, CURLOPT_POSTFIELDS     , $postdata );
@@ -509,7 +518,7 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
         $order->setState(
                 $status_update,
                 $status_update,
-                'Customer Redirect from MOLPAY - ' .$TypeOfReturn. ' (' .$status. ')'
+                'Customer Redirect from Fiuu - ' .$TypeOfReturn. ' (' .$status. ')'
                 . "\n<br>TransactionID: " . $P['tranID']
                 . "\n<br>Amount: " . $P['currency'] . " " . $P['amount'] . $etcAmt
                 . "\n<br>PaidDate: " . $P['paydate']
@@ -549,7 +558,7 @@ class Mage_MOLPaySeamless_PaymentMethodController extends Mage_Core_Controller_F
         $postdata = http_build_query($dataq);
 
         try{
-            $url        = "https://api.molpay.com/MOLPay/q_by_tid.php";
+            $url        = Mage::getModel('molpayseamless/paymentmethod')->getApiHost()."/MOLPay/q_by_tid.php";
             $ch         = curl_init();
             curl_setopt($ch, CURLOPT_POST           , 1     );
             curl_setopt($ch, CURLOPT_POSTFIELDS     , $postdata );

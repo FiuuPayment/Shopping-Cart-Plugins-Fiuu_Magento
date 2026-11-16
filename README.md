@@ -1,14 +1,14 @@
-MOLPay Magento 1.9.3.x Seamless Integration
+Fiuu Magento 1.9.3.x Seamless Integration
 =====================
-![MOLPay Technical Teams](https://github.com/MOLPay/Magento_Plugin/wiki/images/molpay-developer.jpg)
+![Fiuu Magento Plugin](https://user-images.githubusercontent.com/38641542/74420751-e99a2900-4e86-11ea-99e6-904e4eba1574.jpg)
 
-The MOLPay Magento Plugin makes it easy to add MOLPay payment gateway to your Magento shopping cart.
+The Fiuu Magento Plugin makes it easy to add Fiuu payment gateway to your Magento shopping cart.
 
 # Supported version
 - Magento 1.9.3.X
 
 # Notes
-MOLPay Sdn. Bhd. is not responsible for any problems that might arise from the use of this module. Use at your own risk. Please backup any critical data before proceeding. For any query or assistance, please email support@molpay.com
+Fiuu is not responsible for any problems that might arise from the use of this module. Use at your own risk. Please backup any critical data before proceeding. For any query or assistance, please email support@fiuu.com
 
 # System Requirements
 - PHP (at least 5.2) 
@@ -16,18 +16,18 @@ MOLPay Sdn. Bhd. is not responsible for any problems that might arise from the u
 
 # Download
 **Seamless Integration**
-* [MOLPay Seamless Plugin for Magento Version 1.9.3.X - Default Checkout](https://github.com/MOLPay/Magento_Plugin/releases/tag/v1.9.3.x)
-* [MOLPay Seamless Plugin for Magento Version 1.9.3.X - IWD One Page Checkout](https://github.com/MOLPay/Magento_Plugin/tree/Version-1.9.3.x/dist) Go to [IWD One Page Checkout Plugin](https://www.magentocommerce.com/magento-connect/checkout-suite-one-page-checkout.html)
+* [Fiuu Seamless Plugin for Magento Version 1.9.3.X - Default Checkout](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento/tree/Version-1.9.3.x/dist)
+* [Fiuu Seamless Plugin for Magento Version 1.9.3.X - IWD One Page Checkout](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento/tree/Version-1.9.3.x/dist) Go to [IWD One Page Checkout Plugin](https://www.iwdagency.com/products/checkout-suite-m1/)
 
 # Installations & Configurations
-[Go to Wiki](https://github.com/MOLPay/Magento_Plugin/wiki/Installation)
+[Go to Wiki](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento/wiki/Installation)
 
 
 # Support
 
-Merchant Technical Support / Customer Care : support@molpay.com <br>
-Marketing Campaign : marketing@molpay.com <br>
-Channel/Partner Enquiry : channel@molpay.com <br>
-Media Contact : media@molpay.com <br>
-R&D and Tech-related Suggestion : technical@molpay.com <br>
-Abuse Reporting : abuse@molpay.com
+Merchant Technical Support / Customer Care : support@fiuu.com <br>
+Marketing Campaign : marketing@fiuu.com <br>
+Channel/Partner Enquiry : channel@fiuu.com <br>
+Media Contact : media@fiuu.com <br>
+R&D and Tech-related Suggestion : technical@fiuu.com <br>
+Abuse Reporting : abuse@fiuu.com
