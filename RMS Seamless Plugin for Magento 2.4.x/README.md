@@ -1,4 +1,4 @@
-- Magento 2 compatibility up to 2.4.5 with php 8.1 and 8.2.
+- Magento 2 compatibility tested on 2.4.5 (PHP 8.1, 8.2) and 2.4.9 (PHP 8.3).
 
 Installation guide:
 - Extract the content to app/code folder in Magento 2 docroot.

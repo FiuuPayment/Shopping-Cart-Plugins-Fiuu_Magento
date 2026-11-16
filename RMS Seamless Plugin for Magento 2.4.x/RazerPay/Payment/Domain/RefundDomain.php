@@ -52,7 +52,7 @@ class RefundDomain
         string $paymentTransactionId
     ): \Magento\Sales\Model\Order {
         $salesOrder->setData('razerpay_payment_refund_status', 'pending');
-        $salesOrder->addCommentToStatusHistory("RazerPay transaction #{$paymentTransactionId} refund is pending.");
+        $salesOrder->addCommentToStatusHistory("Fiuu transaction #{$paymentTransactionId} refund is pending.");
 
         $this->salesOrderRepository->save($salesOrder);
 
@@ -64,7 +64,7 @@ class RefundDomain
         string $paymentTransactionId
     ): \Magento\Sales\Model\Order {
         $salesOrder->setData('razerpay_payment_refund_status', 'rejected');
-        $salesOrder->addCommentToStatusHistory("RazerPay transaction #{$paymentTransactionId} refund is rejected.");
+        $salesOrder->addCommentToStatusHistory("Fiuu transaction #{$paymentTransactionId} refund is rejected.");
 
         $this->salesOrderRepository->save($salesOrder);
 
@@ -77,7 +77,7 @@ class RefundDomain
     ): \Magento\Sales\Model\Order {
         $salesOrder->setData('razerpay_payment_refund_status', 'success');
 
-        $salesOrder->addCommentToStatusHistory("RazerPay transaction #{$paymentTransactionId} refund is success.");
+        $salesOrder->addCommentToStatusHistory("Fiuu transaction #{$paymentTransactionId} refund is success.");
 
         $this->salesOrderRepository->save($salesOrder);
 

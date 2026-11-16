@@ -6,9 +6,9 @@ class GetChannelStatusRequest extends Request
 {
     protected string $method = \Magento\Framework\App\Request\Http::METHOD_POST;
 
-    protected string $productionEndpoint = 'https://pay.merchant.razer.com/RMS/API/chkstat/channel_status.php';
+    protected string $productionEndpoint = 'https://pay.fiuu.com/RMS/API/chkstat/channel_status.php';
 
-    protected string $sandboxEndpoint = 'https://sandbox.merchant.razer.com/RMS/API/chkstat/channel_status.php';
+    protected string $sandboxEndpoint = 'https://sandbox-payment.fiuu.com/RMS/API/chkstat/channel_status.php';
 
     protected function headers(): array
     {

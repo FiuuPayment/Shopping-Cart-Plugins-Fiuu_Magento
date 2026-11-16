@@ -111,6 +111,7 @@ class AjaxSeamlessParams extends \Magento\Framework\App\Action\Action
                     $this->paymentGatewayConfig->getMerchantId(),
                     $salesOrder->getIncrementId(),
                     $this->paymentGatewayConfig->getVerifyKey(),
+                    $this->paymentGatewayConfig->isExtendedVcodeEnabled() ? $salesOrder->getOrderCurrencyCode() : '',
                 ])),
                 'mpsreturnurl' => $this->magentoUrlBuilder->getUrl('razerpay_payment/checkout/return'),
                 'mpsnotifyurl' => $this->magentoUrlBuilder->getUrl('razerpay_payment/checkout/notify'),
