@@ -1,13 +1,13 @@
 <?php
 /**
- * MOLPay Sdn. Bhd.
+ * Fiuu
  *
  * @package     Fiuu Magento Plugin
  * @author      netbuilder <code@netbuilder.com.my>
- * @copyright   Copyright (c) 2012 - 2016, MOLPay
- * @link        http://molpay.com
+ * @copyright   Copyright (c) 2012 - 2016, Fiuu
+ * @link        https://fiuu.com
  * @since       Version 1.9.x.x
- * @update      MOLPay <technical@molpay.com>
+ * @update      Fiuu <technical@fiuu.com>
  * @filesource  https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_Magento
  */
 
@@ -142,7 +142,12 @@ class Mage_MOLPay_Model_PaymentMethod extends Mage_Payment_Model_Method_Abstract
     }
 
     public function getMOLPayUrl() {
-        return 'https://pay.fiuu.com/MOLPay/pay/'.$this->getConfigData('login')."/";
+        return $this->getPaymentHost().'/MOLPay/pay/'.$this->getConfigData('login')."/";
+    }
+
+    // Fiuu payment host for the selected environment
+    public function getPaymentHost() {
+        return ( $this->getConfigData('environment') === 'sandbox' )? 'https://sandbox-payment.fiuu.com' : 'https://pay.fiuu.com';
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 /**
- * Razer Merchant Services Sdn. Bhd.
+ * Fiuu
  *
  * @package     Fiuu Magento Plugin
  * @author      netbuilder <code@netbuilder.com.my>
